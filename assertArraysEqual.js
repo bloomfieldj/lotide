@@ -1,10 +1,4 @@
-const assertEqual = function (actual, expected) {
-  if (actual === expected) {
-    return true;
-  } else {
-    return false;
-  }
-};
+const assertEqual = require('./assertEqual');
 
 const assertArraysEqual = function(array1, array2){
   let resultsArray = [];
@@ -12,11 +6,13 @@ const assertArraysEqual = function(array1, array2){
     resultsArray.push(assertEqual(array1[i], array2[i]))
   }
   
-console.log(resultsArray.indexOf(false) === -1 ?
-"🎈🎈🎈 Assertion Passed: Both arrays are identical!":
-"🥺🥺🥺 Assertion Failed: Both arrays are not identical!");
+  return resultsArray.indexOf(false) === -1 ?
+    "🎈🎈🎈 Assertion Passed: Both arrays are identical!":
+    "🥺🥺🥺 Assertion Failed: Both arrays are not identical!";
 
 }
 
+
+module.exports = assertArraysEqual;
    
 
